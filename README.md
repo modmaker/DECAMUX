@@ -1,13 +1,13 @@
 DECAMUX
 =======
 
-BeBoPr++ expansion board for up to 10 axes.
+BeBoPr++ expansion board for up to 10 axes with two PEPPERs.
 
 ![](http://imageshack.com/a/img904/443/lyiEKz.jpg)
 
 # Introduction
 
-The **DECAMUX** board allows to extend the **BeBoPr++** with another set of 5 axes, for a total of up to 10 axes. A tiny (1.5 x 1.1 inch or 42 x 28 mm) adapter board in combination with some new PRU software allows MachineKit/LinuxCNC to control 10 axes at simultaneously.
+The **DECAMUX** board allows to extend the **BeBoPr++** with another set of 5 axes, for a total of up to 10 axes. A tiny 1.7 x 1.1 inches (42 x 29 mm) adapter board in combination with some new PRU software allows MachineKit/LinuxCNC to control 10 axes at simultaneously.
 
 The board was announced on the MachineKit mailing list:
 
@@ -82,4 +82,4 @@ The PRU code needed for to used the DECAMUX with MachineKit is available [here](
 
 The [DECAMUX board design](https://github.com/modmaker/DECAMUX/blob/master/pcb/DECAMUX_schematics.pdf) and [associated software](https://github.com/modmaker/machinekit/tree/feature/poc-decamux) are available as Open Source. Anyone used to soldering SMD components should be able to assemble a board. L, R and C components are all (large) 0805 parts, the latches are fine pitch but, when using plenty of flux, easy to solder.
 
-See ref [2] in the announcement for quick ordering a set of 3 PCBs at OSH Park.
+The PCB design is available as shared project at OSH Park. A set of 3 PCBs can be [ordered directly from OSH Park](https://oshpark.com/shared_projects/Nn0ndOrm). Total BOM cost is around $10-$15 for the complete board including cable.
