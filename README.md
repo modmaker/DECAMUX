@@ -1,7 +1,7 @@
 DECAMUX
 =======
 
-BeBoPr++ expansion board for up to 10 axes with two PEPPERs.
+**BeBoPr++ expansion board for up to 10 axes with two PEPPERs.**
 
 ![](http://imageshack.com/a/img904/443/lyiEKz.jpg)
 
@@ -80,6 +80,8 @@ The PRU code needed for to used the DECAMUX with MachineKit is available [here](
 
 ## How to buy / build
 
-The [DECAMUX board design](https://github.com/modmaker/DECAMUX/blob/master/pcb/DECAMUX_schematics.pdf) and [associated software](https://github.com/modmaker/machinekit/tree/feature/poc-decamux) are available as Open Source. Anyone used to soldering SMD components should be able to assemble a board. L, R and C components are all (large) 0805 parts, the latches are fine pitch but, when using plenty of flux, easy to solder.
+![](http://www.oshwa.org/wp-content/uploads/2014/03/oshw-logo-100-px.png)
 
-The PCB design is available as shared project at OSH Park. A set of 3 PCBs can be [ordered directly from OSH Park](https://oshpark.com/shared_projects/Nn0ndOrm). Total BOM cost is around $10-$15 for the complete board including cable.
+The [DECAMUX board design](https://github.com/modmaker/DECAMUX/blob/master/pcb/DECAMUX_schematics.pdf) and [associated software](https://github.com/modmaker/machinekit/tree/feature/poc-decamux) are available as **Open Source Hardware**. Anyone used to soldering SMD components should be able to assemble this board. L, R and C components are all (large) 0805 parts, the latches are fine pitch but, when using plenty of flux, easy to solder.
+
+The PCB design is open hardware and available as shared project at **OSH Park**. A set of 3 PCBs can be [ordered directly from OSH Park](https://oshpark.com/shared_projects/Nn0ndOrm). Total BOM cost is around $10-$15 for the complete board including cable.
