@@ -1,14 +1,20 @@
 DECAMUX
 =======
+Last changed: 2014-10-08 - Added FAQ and reference to TAKE-5 and XTRUDR boards.
 
-**BeBoPr++ expansion board for up to 10 axes with two PEPPERs.**
+**BeBoPr++ expansion board for up to 10 axes.**
 
-![](http://imageshack.com/a/img904/443/lyiEKz.jpg)
+|![](http://imageshack.com/a/img673/2575/1gzmfG.jpg)|
+|:-:|
+|*DECAMUX with flatcable for connection to BeBoPr++*|
 
-# Introduction
+## Introduction
 
-The **DECAMUX** board allows to extend the **BeBoPr++** with another set of 5 axes, for a total of up to 10 axes. A tiny 1.7 x 1.1 inches (42 x 29 mm) adapter board in combination with some new PRU software allows MachineKit/LinuxCNC to control 10 axes at simultaneously.
+The **DECAMUX** board **doubles the number of outputs** on the **BeBoPr++**'s extension connector. Instead of the single (**J5**) expansion connector, two of these connectors are created, for **up to 10 axes**, **20 digital outputs**, or **a combination** of these (for 3 axes and 4 PWM outputs, see the [**XTRUDR**](https://github.com/modmaker/XTRUDR)). 
 
+The tiny 1.7 x 1.1 inches (42 x 29 mm) adapter board in combination with some new PRU software allows MachineKit/LinuxCNC to control all signals simultaneously. The board has 3 connectors, one connects to the BeBoPr, the other two connect to the expansion boards.
+
+## Announcement
 The board was announced on the MachineKit mailing list:
 
 	Hi All,
@@ -60,20 +66,22 @@ The board was announced on the MachineKit mailing list:
 Read the full DECAMUX thread here: https://groups.google.com/forum/#!topic/machinekit/0aYZ0jUaGkY.
 
 ## The DECAMUX hardware
-![](http://imageshack.com/a/img746/7889/f8d8ak.jpg)
-*Bottom side, SMD only*
+|![](http://imageshack.com/a/img902/3377/YdcUG1.jpg)|
+|:-:|
+|*Bare board*|
 
-![](http://imageshack.com/a/img902/3377/YdcUG1.jpg)
-*Top side, without connectors*
+|![](http://imageshack.com/a/img746/7889/f8d8ak.jpg)|
+|:-:|
+|*Bottom side with all SMD components mounted*|
 
-![](http://imageshack.com/a/img746/6573/f6UvU1.jpg)
-*Top side, with connectors*
+|![](http://imageshack.com/a/img746/6573/f6UvU1.jpg)|![](http://imageshack.com/a/img911/9549/nnjgt5.jpg)|
+|:-:|:-:|
+|*After mounting connectors, Top side*|*Bottom side*|
 
-![](http://imageshack.com/a/img911/9549/nnjgt5.jpg)
-*Bottom of completed board*
 
-![](http://imageshack.com/a/img673/2575/1gzmfG.jpg)
-*An extra cable connects the DECAMUX to the BeBoPr++, the PEPPERs now plug into the DECAMUX*
+|![](http://imageshack.com/a/img904/443/lyiEKz.jpg)|
+|:-:|
+|*With cable to connect to the BeBoPr++: two expansion connectors available*|
 
 ## The DECAMUX software
 The PRU code needed for to used the DECAMUX with MachineKit is available [here](https://github.com/modmaker/machinekit/tree/feature/poc-decamux). This software will be integrated in MachineKit in the near future. An updated pepper driver component and sample configurations are in the repository too.
@@ -84,4 +92,40 @@ The PRU code needed for to used the DECAMUX with MachineKit is available [here](
 
 The [DECAMUX board design](https://github.com/modmaker/DECAMUX/blob/master/pcb/DECAMUX_schematics.pdf) and [associated software](https://github.com/modmaker/machinekit/tree/feature/poc-decamux) are available as **Open Source Hardware**. Anyone used to soldering SMD components should be able to assemble this board. L, R and C components are all (large) 0805 parts, the latches are fine pitch but, when using plenty of flux, easy to solder.
 
-The PCB design is open hardware and available as shared project at **OSH Park**. A set of 3 PCBs can be [ordered directly from OSH Park](https://oshpark.com/shared_projects/Nn0ndOrm). Total BOM cost is around $10-$15 for the complete board including cable.
+The PCB design is open hardware and available as shared project at **OSH Park**. A set of 3 PCBs can be [ordered directly from OSH Park](https://oshpark.com/shared_projects/Nn0ndOrm) for less than $10 including shipping. Total BOM cost is around EUR 8-10, or $10-$15 for the complete board including cable.
+
+## FAQ
+**Q1**: Can I use the DECAMUX together with the plug-in stepper modules?
+**A1**: No. The DECAMUX connects to the connector for off-board stepper drivers and uses the same signals as the plug-in stepper modules. Thus it's physically not possible to combine both.
+
+**Q2**: Is the pinout of the output connectors on the DECAMUX different from J5 on the BeBoPr++?
+**A2**: No. The signals are the same, although the voltage levels differ (see next question).
+
+**Q3**: I'm using plug-in stepper modules, can I expand my system and continue to use these modules?
+**A3**: Yes. For this purpose the [TAKE-5](https://github.com/modmaker/TAKE-5) expansion board was made. It can hold all four modules plus one extra, for a total of five axes.
+
+**Q4**: I am currently using brand 'XYZZY' stepper drivers with the BeBoPr. I would like to add more axes, can I use the DECAMUX?
+**A4**: Probably. You have to check that your drivers will work with 3.3 Volt signal levels on the inputs. The BeBoPr uses 5 Volt CMOS levels while the DECAMUX generates lower, 3.3 Volt CMOS levels.
+
+**Q5**: Can I cascade multiple DECAMUXes to increase the number of outputs further?
+**A5**: Not yet, with the current DECAMUX and software.
+
+**Q6**: What software can I use with the DECAMUX?
+**A6**: The [BeBoPr software](https://github.com/modmaker/BeBoPr) generates step signals for only four axes. To work with more axes, [MachineKit](http://www.machinekit.io/) with DECAMUX support is needed (see Q7).
+
+**Q7**: Will the [modified machinekit repository](https://github.com/modmaker/machinekit) with code for the DECAMUX be part of the official code?
+**A7**: Yes, soon I hope.
+
+**Q8**: Will the DECAMUX work with the previous generation BeBoPr and BeBoPr+ boards?
+**A8**: Not without modifying the BeBoprm but in theory it could be made to work.
+
+**Q9**: I don't want to order 3 boards because I only need one.
+**A9**: The board post a message on the MachineKit list, or send me a mail and I'll see whether I still have one for sale.
+
+**Q10**: I'm only having basic soldering skills. The latch on the DECAMUX has 0.65 mm pitch leads. Help!
+**A10**: I'm looking into producing an assembled version. Drop me a mail if you're interested.
+
+**Q11**: What are the jumper settings on the BeBoPr++ when I want to use the DECAMUX.
+**A11**: Both JP3 and JP4 on the bootom side of the BeBoPr++ should be closed.
+
+ 
