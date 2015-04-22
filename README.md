@@ -1,6 +1,7 @@
 DECAMUX
 =======
-Last changed: 2014-10-08 - Added FAQ and reference to TAKE-5 and XTRUDR boards.
+Last changed: 2015-04-22 - Updated FAQ.
+
 
 **BeBoPr++ expansion board for up to 10 axes.**
 
@@ -111,7 +112,7 @@ The PCB design is open hardware and available as shared project at **OSH Park**.
 **A5**: Not yet, with the current DECAMUX and software.
 
 **Q6**: What software can I use with the DECAMUX?
-**A6**: The [BeBoPr software](https://github.com/modmaker/BeBoPr) generates step signals for only four axes. To work with more axes, [MachineKit](http://www.machinekit.io/) with DECAMUX support is needed (see Q7).
+**A6**: The [BeBoPr software](https://github.com/modmaker/BeBoPr) generates step signals for only four or five axes. To work with more axes, [MachineKit](http://www.machinekit.io/) with DECAMUX support is needed (see Q7).
 
 **Q7**: Will the [modified machinekit repository](https://github.com/modmaker/machinekit) with code for the DECAMUX be part of the official code?
 **A7**: Yes, soon I hope.
@@ -120,12 +121,13 @@ The PCB design is open hardware and available as shared project at **OSH Park**.
 **A8**: Not without modifying the BeBoprm but in theory it could be made to work.
 
 **Q9**: I don't want to order 3 boards because I only need one.
-**A9**: The board post a message on the MachineKit list, or send me a mail and I'll see whether I still have one for sale.
+**A9**: Post a message on the MachineKit list, or send me a mail and I might have a spare for sale.
 
 **Q10**: I'm only having basic soldering skills. The latch on the DECAMUX has 0.65 mm pitch leads. Help!
 **A10**: I'm looking into producing an assembled version. Drop me a mail if you're interested.
 
-**Q11**: What are the jumper settings on the BeBoPr++ when I want to use the DECAMUX.
+**Q11**: What are the jumper settings on the BeBoPr++ when I want to use the DECAMUX?
 **A11**: Both JP3 and JP4 on the bootom side of the BeBoPr++ should be closed.
 
- 
+**Q12**: Do I need a special device tree overlay for the DECAMUX?
+**A12**: Yes, you need the cape-bebopr-pp overlay instead of the default cape-bebopr-brdg. If you disable the default overlay in uEnv.txt, the proper one will be loaded by the Axis startup script.
